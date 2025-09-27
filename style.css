@@ -98,7 +98,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between; /* logo left & wallet right */
-  padding: 0.75rem 3rem; /* vertical padding inside header */
+  padding: 0.75rem 0rem; /* vertical padding inside header */
   box-sizing: border-box;
   background: transparent;
 }
@@ -167,8 +167,8 @@ nav a:hover {
 
 /* Wallet button (right) */
 .wallet-btn {
-  width: 215px;
-  height: 75px;
+  width: 180px;
+  height: 57px;
   gap: 10px;
   background-color: #fed217;
   color: #000000;
@@ -179,7 +179,7 @@ nav a:hover {
   font-family: Inter;
   font-weight: 500;
   font-style: Medium;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 100%;
   letter-spacing: 0%;
 }
