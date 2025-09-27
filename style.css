@@ -167,15 +167,15 @@ nav a:hover {
 
 /* Wallet button (right) */
 .wallet-btn {
-  width: 180px;
-  height: 57px;
+  width: 186px;
+  height: 65px;
   gap: 10px;
   background-color: #fed217;
   color: #000000;
   opacity: 1;
   border-radius: 100px;
   padding: 20px;
-
+  cursor: pointer;
   font-family: Inter;
   font-weight: 500;
   font-style: Medium;
@@ -185,6 +185,7 @@ nav a:hover {
 }
 
 .wallet-btn:hover {
+  background: #ffea70;
 }
 
 /* --- Small-screen fallback (optional, prevents overlap) --- */
@@ -213,29 +214,31 @@ nav a:hover {
     margin-left: auto;
     margin-right: 1rem;
   }
+
+
 }
 
 .centerdiv {
   position: absolute;
-  top: 50%;
+  top: 45%; /* vertical placement */
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 3rem 2rem;
-  max-width: 1200px;
+  gap: 6rem; /* controls distance between text and image */
+  max-width: 1400px; /* overall container limit */
+  width: 90%; /* fluid responsive width */
   margin: 0 auto;
 }
 
 /* Left text section */
 .text-content {4
-  flex: 1;
+  flex: 0 1 auto;
 }
 
 .text-content h1 {
-  font-size: 3rem;
+  font-size: 100px;
   font-weight: 800;
   margin: 0 0 1rem;
   line-height: 1.2;
@@ -250,23 +253,33 @@ nav a:hover {
 }
 
 .text-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ddd;
-  margin-bottom: 1.5rem;
-  max-width: 500px;
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 24px;
+line-height: 2.2rem;
+letter-spacing: 0%;
+text-transform: capitalize;
+
 }
 
 /* Button */
 .cta-btn {
   background: #ffd500;
   color: #000;
-  font-weight: 600;
+  font-weight: 500;
   border: none;
   padding: 0.8rem 1.6rem;
   border-radius: 999px;
   cursor: pointer;
   transition: background 0.3s;
+
+font-weight: 600;
+font-style: Medium;
+font-size: 20px;
+
+letter-spacing: 0%;
+
 }
 
 .cta-btn:hover {
@@ -281,6 +294,68 @@ nav a:hover {
 }
 
 .image-content img {
-  max-width: 100%;
+  flex: 0 0 auto;
+  /* max-width: 100%;
+  height: auto; */
+  width: 464px;
+height: 464px;
+scale: 0 deg;
+opacity: 1px;
+
+}
+
+/* === Privacy Section === */
+.privacy-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 8rem auto;
+  padding: 0 2rem;
+  gap: 4rem;
+}
+
+.privacy-text {
+  flex: 1;
+}
+
+.privacy-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffd500; /* yellow headline */
+  margin-bottom: 1.5rem;
+}
+
+.privacy-divider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-divider span:first-child {
+  flex: 1;
+  height: 2px;
+  background: #fff;
+}
+
+.privacy-divider .arrow {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.privacy-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 600px;
+}
+
+.privacy-icon {
+  flex: 0 0 auto;
+}
+
+.privacy-icon img {
+  width: 70px; /* adjust size of yellow icon */
   height: auto;
 }
