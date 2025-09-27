@@ -3,44 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zama Builders Program</title>
+    <title>Zama Chatbot</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Build the Future of Privacy with FHE</h1>
-      <p>
-        Join Zama’s Builders Program and create privacy-preserving applications
-        with FHE.
-      </p>
-      <a href="#apply" class="btn">Apply Now</a>
-    </section>
+    <div class="container">
+      <div class="grid"></div>
 
-    <!-- About Section -->
-    <section class="about">
-      <h2>About the Program</h2>
-      <p>
-        The Zama Builders Program empowers developers, researchers, and startups
-        to build applications with Fully Homomorphic Encryption. Get access to
-        tools, mentorship, and a vibrant community.
-      </p>
-    </section>
+      <div class="content">
+        <!-- Header -->
+        <header>
+          <!-- Left Logo -->
+          <div class="logo">
+            <div class="logo-box">
+              <img src="images/logo1.png" alt="Zama Logo" />
+            </div>
+            <div class="logo-text">zama<span>chatbot</span></div>
+          </div>
 
-    <!-- Apply Section -->
-    <section id="apply" class="apply">
-      <h2>Apply Now</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea
-          name="project"
-          placeholder="Tell us about your project..."
-          required
-        ></textarea>
-        <button type="submit" class="btn">Submit</button>
-      </form>
-    </section>
+          <!-- Center Navigation -->
+          <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Support</a>
+          </nav>
+
+          <!-- Right Wallet Button -->
+          <button class="wallet-btn">connect wallet</button>
+        </header>
+      </div>
+
+      <div class="centerdiv">
+        <div class="text-content">
+          <h1>
+            <span class="white">Zama</span>
+            <span class="yellow">Chat-Bot</span>
+          </h1>
+          <p>
+            Your Intelligent AI Companion For Navigating The Zama Ecosystem. Get
+            Instant Answers, Learn How To Contribute, And Discover
+            Opportunities.
+          </p>
+          <button class="cta-btn">message our chatbot</button>
+        </div>
+
+        <div class="image-content">
+          <img src="images/abstract.png" alt="Zama illustration" />
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

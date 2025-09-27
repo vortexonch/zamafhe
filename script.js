@@ -1,4 +1,4 @@
-// Example: Confirm form submission
-document.querySelector("form").addEventListener("submit", function () {
-  alert("Thank you for applying! 🚀");
+// Simple JS placeholder
+document.getElementById("chatBtn").addEventListener("click", () => {
+  alert("Chatbot coming soon 🚀");
 });

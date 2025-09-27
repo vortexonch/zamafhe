@@ -1,70 +1,286 @@
+/* ====== Fixed CSS: grid + independent side fades ====== */
+
+/* Tweak these CSS variables to control how far each side fades.
+   Values are percentages from the edge toward the center. */
+:root {
+  /* larger % = fade starts farther from edge (smaller visible center),
+     smaller % = fade starts closer to the edge (larger visible center) */
+  --fade-top: 0%;
+  --fade-bottom: 70%;
+  --fade-left: 25%;
+  --fade-right: 25%;
+
+  --grid-size: 80px; /* grid cell size */
+  --grid-color: rgba(254, 210, 23, 0.2); /* yellow grid line color & opacity */
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b1020;
-  color: #fff;
-  line-height: 1.6;
-  text-align: center;
+  font-family: "Inter", sans-serif;
+  background: black;
+  color: white;
+  overflow: hidden;
 }
 
-section {
-  padding: 60px 20px;
-}
-
-.hero {
+/* layout container */
+.container {
+  position: relative;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(to right, #1f2937, #111827);
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+/* grid element (behind content)
+   - topmost layers are the fade overlays (4 layers),
+   - lower two layers are the horizontal & vertical grid lines. */
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    /* top fade: black -> transparent (from top inward) */ linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) var(--fade-top)
+    ),
+    /* bottom fade: black -> transparent (from bottom inward) */
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) var(--fade-bottom)
+      ),
+    /* left fade: black -> transparent (from left inward) */
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) var(--fade-left)
+      ),
+    /* right fade: black -> transparent (from right inward) */
+      linear-gradient(
+        to left,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) var(--fade-right)
+      ),
+    /* horizontal grid lines (thin yellow lines) */
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+    /* vertical grid lines */
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+
+  /* sizes: fades should cover the whole element; grids repeat at the cell size */
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size);
+
+  /* repeats: fades don't repeat; grid layers repeat */
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat;
+
+  /* position: fades cover entire element; grid default positioning is fine */
+  background-position: center, center, center, center, 0 0, 0 0;
 }
 
-.hero p {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  color: #d1d5db;
+/* foreground content should sit above the grid */
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 2rem 3.5rem;
 }
 
-.btn {
-  background: #6366f1;
-  color: #fff;
-  padding: 12px 25px;
-  text-decoration: none;
-  border-radius: 8px;
-  display: inline-block;
-  transition: background 0.3s ease;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background: #4f46e5;
-}
-
-.apply form {
-  max-width: 500px;
-  margin: 0 auto;
+header {
+  position: relative; /* needed so nav absolute centers relative to header */
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  justify-content: space-between; /* logo left & wallet right */
+  padding: 0.75rem 3rem; /* vertical padding inside header */
+  box-sizing: border-box;
+  background: transparent;
 }
 
-.apply input,
-.apply textarea {
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
+/* Logo (left) - no change required */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.logo-text {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 45px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+
+  span {
+    color: #fed217;
+  }
+}
+
+/* Put the nav dead-center inside the header */
+nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* horizontally AND vertically center inside header */
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap; /* avoid wrapping nav items */
+  pointer-events: auto;
+}
+
+/* Nav links styling */
+nav a {
+  font-family: Inter;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 25px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: capitalize;
+
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.18s;
+}
+
+nav a.active {
+  color: #ffff;
+}
+nav a:hover {
+  color: #fed217;
+}
+
+/* Wallet button (right) */
+.wallet-btn {
+  width: 215px;
+  height: 75px;
+  gap: 10px;
+  background-color: #fed217;
+  color: #000000;
+  opacity: 1;
+  border-radius: 100px;
+  padding: 20px;
+
+  font-family: Inter;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 25px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.wallet-btn:hover {
+}
+
+/* --- Small-screen fallback (optional, prevents overlap) --- */
+@media (max-width: 720px) {
+  /* stack header items on small screens */
+  header {
+    display: block;
+    padding: 0.6rem 0;
+  }
+
+  .logo {
+    padding: 0 1rem;
+  }
+
+  nav {
+    position: static;
+    transform: none;
+    margin: 0.6rem 0;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .wallet-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+}
+
+.centerdiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left text section */
+.text-content {4
+  flex: 1;
+}
+
+.text-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.text-content .white {
+  color: #fff;
+}
+
+.text-content .yellow {
+  color: #ffd500; /* bright yellow */
+}
+
+.text-content p {
   font-size: 1rem;
-  color: #111;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
 }
 
-.apply textarea {
-  resize: vertical;
+/* Button */
+.cta-btn {
+  background: #ffd500;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #ffea70;
+}
+
+/* Right image */
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-content img {
+  max-width: 100%;
+  height: auto;
 }
