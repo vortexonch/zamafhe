@@ -220,13 +220,13 @@ nav a:hover {
 
 .centerdiv {
   position: absolute;
-  top: 45%; /* vertical placement */
+  top: 60%; /* vertical placement */
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6rem; /* controls distance between text and image */
+  gap: 5rem; /* controls distance between text and image */
   max-width: 1400px; /* overall container limit */
   width: 90%; /* fluid responsive width */
   margin: 0 auto;
@@ -238,7 +238,7 @@ nav a:hover {
 }
 
 .text-content h1 {
-  font-size: 100px;
+  font-size: 90px;
   font-weight: 800;
   margin: 0 0 1rem;
   line-height: 1.2;
