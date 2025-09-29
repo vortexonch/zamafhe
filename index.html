@@ -1,193 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zama AI Chatbot</title>
     <link rel="icon" type="image/png" href="images/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <link href="./output.css" rel="stylesheet" />
   </head>
-  <body>
-    <div class="container">
-      <div class="grid"></div>
+  <body class="bg-black text-white font-inter overflow-x-hidden">
+    <!-- Background Grid (yellow faint grid) -->
+    <div
+      class="yellow-grid absolute inset-0 -z-10 bg-[url('images/grid.png')] bg-[length:80px_80px] opacity-20"
+    ></div>
 
-      <div class="content">
-        <!-- Header -->
-        <header>
-          <!-- Left Logo -->
-          <div class="logo">
-            <div class="logo-box">
-              <img src="images/logo1.png" alt="Zama Logo" />
-            </div>
-            <div class="logo-text">zama<span>chatbot</span></div>
-          </div>
-
-          <!-- Center Navigation -->
-          <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Support</a>
-          </nav>
-
-          <!-- Right Wallet Button -->
-          <button class="wallet-btn">connect wallet</button>
-        </header>
+    <!-- HEADER -->
+    <header
+      class="w-full px-6 lg:px-20 py-4 flex items-center justify-between relative"
+    >
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="images/logo1.png" alt="Zama Logo" class="w-10 h-10" />
+        <span class="text-3xl font-bold"
+          >zama<span class="text-yellow-400">chatbot</span></span
+        >
       </div>
 
-      <div class="centerdiv">
-        <div class="text-content">
-          <h1>
-            <span class="white">Zama</span>
-            <span class="yellow">Chat-Bot</span>
-          </h1>
-          <p>
-            Your Intelligent AI Companion For Navigating The Zama <br />
-            Ecosystem. Get Instant Answers, Learn How To <br />
-            Contribute, And Discover Opportunities.
-          </p>
-          <button class="cta-btn">message our chatbot</button>
-        </div>
+      <!-- Navigation (Desktop) -->
+      <!-- Navigation (Desktop) -->
+      <nav
+        class="hidden lg:flex gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <a href="#" class="text-lg hover:text-yellow-400">Home</a>
+        <a href="#" class="text-lg hover:text-yellow-400">About Us</a>
+        <a href="#" class="text-lg hover:text-yellow-400">Support</a>
+      </nav>
 
-        <div class="image-content">
-          <img src="images/abstract.png" alt="Zama illustration" />
-        </div>
-      </div>
+      <!-- Wallet Button -->
+      <button
+        class="hidden lg:block bg-yellow-400 text-black px-6 py-3 rounded-full font-medium hover:bg-yellow-300 transition"
+      >
+        Connect Wallet
+      </button>
+
+      <!-- Mobile Menu Button (for mobile + tablet) -->
+      <button id="menu-btn" class="lg:hidden text-white">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+      <!-- 
+      <nav
+        class="hidden md:flex gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <a href="#" class="text-lg hover:text-yellow-400">Home</a>
+        <a href="#" class="text-lg hover:text-yellow-400">About Us</a>
+        <a href="#" class="text-lg hover:text-yellow-400">Support</a>
+      </nav>
+
+       Wallet Button -->
+      <!-- <button
+        class="hidden md:block bg-yellow-400 text-black px-6 py-3 rounded-full font-medium hover:bg-yellow-300 transition"
+      >
+        Connect Wallet
+      </button>
+
+       Mobile Menu Button -->
+      <!-- <button id="menu-btn" class="md:hidden text-white">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+   -->
+    </header>
+
+    <!-- Mobile Dropdown -->
+    <div
+      id="mobile-menu"
+      class="hidden flex-col bg-black px-6 py-4 space-y-4 md:hidden"
+    >
+      <a href="#" class="hover:text-yellow-400">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Support</a>
+      <button class="bg-yellow-400 text-black px-6 py-2 rounded-full w-fit">
+        Connect Wallet
+      </button>
     </div>
 
-    <div class="privacy-section">
-      <div class="privacy-text">
-        <h2>Meet Your Web 3 <br />Privacy Guide</h2>
-        <div class="privacy-divider">
-          <span></span>
-          <span class="arrow"><img src="images/Arrow 1.png" alt="" /></span>
-        </div>
-        <p>
-          Zama Bot Is An AI-Powered Assistant Designed To Help Newcomers And
-          Experts Alike <br />
-          Understand And Engage With The Zama Protocol Ecosystem. Whether You're
-          Curious <br />
-          About Fully Homomorphic Encryption Or Looking For Ways To Contribute
-          And Earn, We've <br />
-          Got You Covered
+    <!-- HERO SECTION -->
+    <section
+      class="flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto px-6 py-20 gap-10"
+    >
+      <!-- Left Text -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+          <span class="text-white">Zama</span>
+          <span class="text-yellow-400">Chat-Bot</span>
+        </h1>
+        <p class="text-lg lg:text-xl text-gray-300 mb-6">
+          Your Intelligent AI Companion For Navigating The Zama Ecosystem.<br />
+          Get Instant Answers, Learn How To Contribute, And Discover
+          Opportunities.
         </p>
+        <button
+          class="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition"
+        >
+          Message our chatbot
+        </button>
       </div>
-
-      <div class="privacy-icon">
-        <img src="images/mask.png" alt="Privacy Icon" />
+      <!-- Right Image -->
+      <div class="md:w-1/2 flex justify-center">
+        <img
+          src="images/abstract.png"
+          alt="Zama illustration"
+          class="w-80 md:w-[460px]"
+        />
       </div>
-    </div>
-
-    <!-- GRID SECTION -->
-    <section class="features-section">
-      <div class="features-grid">
-        <div class="feature-card">
-          <!-- <span class="icon">🚀</span> -->
-          <h3>🚀 Contribute & Earn</h3>
-          <p>
-            Discover Opportunities To Contribute To Zama <br />
-            And Generate Returns
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <!-- <span class="icon">🎓</span> -->
-          <h3>🎓 Learn & Understand</h3>
-          <p>
-            Get Complex FHE And Web3 Concepts Explained <br />
-            In Simple Terms
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <!-- <span class="icon">📈</span> -->
-          <h3>📈 Stay Updated</h3>
-          <p>
-            Get The Latest News And Developments In The <br />
-            Zama Ecosystem
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <!-- <span class="icon">💡</span> -->
-          <h3>💡 Get Guidance</h3>
-          <p>
-            Receive Personalized Tips And Strategies For <br />
-            Your Web3 Journey
-          </p>
-        </div>
-      </div>
-      <img src="images/3D2.png" alt="Ribbon" class="ribbon-img" />
     </section>
 
-    <!-- footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <!-- Left: Logo + brand -->
-        <div class="footer-left">
-          <img src="images/logo1.png" alt="Zama Logo" class="logo" />
-          <span class="brand">zama<span class="yell">chatbot</span></span>
+    <!-- PRIVACY SECTION -->
+    <section
+      class="flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto px-6 py-20 gap-10"
+    >
+      <!-- Left Text -->
+      <div class="flex-1">
+        <h2 class="text-4xl font-bold text-yellow-400 mb-4">
+          Meet Your Web 3 <br />Privacy Guide
+        </h2>
+        <div class="flex items-center mb-6">
+          <!-- <span class="flex-1 h-[2px] bg-white"></span> -->
+          <span class="ml-4"
+            ><img src="images/Arrow 1.png" alt="Arrow" class=""
+          /></span>
+        </div>
+        <p class="text-gray-300 leading-relaxed">
+          Zama Bot is an AI-Powered Assistant designed to help newcomers and
+          experts alike understand and engage with the Zama Protocol Ecosystem.
+          Whether you're curious about Fully Homomorphic Encryption or looking
+          for ways to contribute and earn, we've got you covered.
+        </p>
+      </div>
+      <!-- Right Icon -->
+      <div class="flex-shrink-0">
+        <img src="images/mask.png" alt="Privacy Icon" class="w-20 lg:w-28" />
+      </div>
+    </section>
+    <!-- PRIVACY SECTION -->
+
+    <!-- FEATURES SECTION -->
+    <section
+      class="relative bg-gradient-to-t from-black via-[#A0842E66] to-black py-20"
+    >
+      <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 px-6">
+        <div
+          class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition"
+        >
+          <h3 class="text-2xl lg:text-3xl mb-3">🚀 Contribute & Earn</h3>
+          <p class="text-gray-300">
+            Discover opportunities to contribute to Zama and generate returns.
+          </p>
+        </div>
+        <div
+          class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition"
+        >
+          <h3 class="text-2xl lg:text-3xl mb-3">🎓 Learn & Understand</h3>
+          <p class="text-gray-300">
+            Get complex FHE and Web3 concepts explained in simple terms.
+          </p>
+        </div>
+        <div
+          class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition"
+        >
+          <h3 class="text-2xl lg:text-3xl mb-3">📈 Stay Updated</h3>
+          <p class="text-gray-300">
+            Get the latest news and developments in the Zama ecosystem.
+          </p>
+        </div>
+        <div
+          class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition"
+        >
+          <h3 class="text-2xl lg:text-3xl mb-3">💡 Get Guidance</h3>
+          <p class="text-gray-300">
+            Receive personalized tips and strategies for your Web3 journey.
+          </p>
+        </div>
+      </div>
+
+      <!-- Ribbon Image -->
+      <img
+        src="images/3D2.png"
+        alt="Ribbon"
+        class="absolute right-0 bottom-0 w-96 opacity-80 pointer-events-none -z-10"
+      />
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative bg-[#111] py-12 text-gray-300 overflow-hidden">
+      <div
+        class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10"
+      >
+        <!-- Left -->
+        <div class="flex items-center gap-3">
+          <img src="images/logo1.png" alt="Zama Logo" class="w-10 h-10" />
+          <span class="text-2xl font-bold">
+            zama<span class="text-yellow-400">chatbot</span>
+          </span>
         </div>
 
-        <!-- Center: subscription form -->
-        <div class="footer-center">
-          <p>
-            Get early drops & <br />
-            Updates from zamabot
+        <!-- Subscribe -->
+        <div>
+          <p class="text-xl mb-3">
+            Get early drops & <br />updates from zamabot
           </p>
-          <form class="subscribe" id="subscribeForm">
-            <input type="email" placeholder="Email Address" required />
-            <button type="submit">Subscribe →</button>
+          <form class="flex bg-white rounded-lg overflow-hidden">
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="flex-1 px-3 py-2 text-black outline-none"
+              required
+            />
+            <button
+              type="submit"
+              class="bg-yellow-400 px-4 text-black font-bold hover:bg-yellow-300"
+            >
+              Subscribe →
+            </button>
           </form>
         </div>
 
-        <!-- Right: links -->
-        <div class="footer-right">
-          <div class="links">
-            <h4>About Us</h4>
-            <a href="#">Who we are</a>
-            <a href="#">Careers</a>
-            <a href="#">FAQ</a>
-          </div>
+        <!-- About Us -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">About Us</h4>
+          <a href="#" class="block hover:text-white">Who we are</a>
+          <a href="#" class="block hover:text-white">Careers</a>
+          <a href="#" class="block hover:text-white">FAQ</a>
         </div>
 
-        <div class="footer-last">
-          <div class="links">
-            <h4>Privacy Policy</h4>
-            <!-- Social icons -->
-            <div class="footer-socials">
-              <a
-                href="https://x.com/zama_fhe"
-                target="_blank"
-                aria-label="Follow on X"
-              >
-                <i class="fa-brands fa-x-twitter"></i>
-              </a>
-              <a
-                href="https://discord.gg/zama"
-                target="_blank"
-                aria-label="Join Discord"
-              >
-                <i class="fa-brands fa-discord"></i>
-              </a>
-            </div>
+        <!-- Privacy + Social -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">Privacy Policy</h4>
+          <div class="flex gap-4 text-2xl text-yellow-400">
+            <a href="https://x.com/zama_fhe" target="_blank"
+              ><i class="fa-brands fa-x-twitter hover:text-white"></i
+            ></a>
+            <a href="https://discord.gg/zama" target="_blank"
+              ><i class="fa-brands fa-discord hover:text-white"></i
+            ></a>
           </div>
         </div>
       </div>
 
-      <!-- BIG background watermark -->
-      <div class="footer-watermark">zamafhezamafheza</div>
+      <!-- Watermark (behind everything) -->
+      <div
+        class="absolute inset-0 flex items-center justify-center text-[6rem] md:text-[10rem] font-extrabold text-yellow-400/10 whitespace-nowrap z-0"
+      >
+        zamafhe
+      </div>
     </footer>
 
+    <!-- Script for Mobile Menu -->
     <script src="script.js"></script>
   </body>
 </html>
