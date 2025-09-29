@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zama Chatbot Landing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  </head>
+  <body class="bg-black text-white font-sans overflow-x-hidden">
+    <!-- HEADER -->
+    <header
+      class="w-full px-6 lg:px-20 py-4 flex items-center justify-between relative bg-gradient-to-b from-black via-black/80 to-black"
+    >
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div
+          class="bg-yellow-400 text-black font-bold text-xl w-10 h-10 flex items-center justify-center rounded"
+        >
+          Z
+        </div>
+        <span class="text-2xl font-bold"
+          >zama<span class="text-yellow-400">chatbot</span></span
+        >
+      </div>
+
+      <!-- Navigation (Desktop) -->
+      <nav
+        class="hidden lg:flex gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        <a href="#" class="text-lg hover:text-yellow-400">Home</a>
+        <a href="#" class="text-lg hover:text-yellow-400">About Us</a>
+        <a href="#" class="text-lg hover:text-yellow-400">Support</a>
+      </nav>
+
+      <!-- Wallet Button (Desktop) -->
+      <a
+        href="#"
+        class="hidden lg:block bg-yellow-400 text-black px-6 py-3 rounded-full font-medium hover:bg-yellow-300 transition"
+      >
+        Connect Wallet
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="lg:hidden text-white">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Dropdown -->
+    <div
+      id="mobile-menu"
+      class="hidden flex-col bg-black px-6 py-4 space-y-4 md:hidden"
+    >
+      <a href="#" class="hover:text-yellow-400 block">Home</a>
+      <a href="#" class="block hover:text-yellow-400">About Us</a>
+      <a href="#" class="block hover:text-yellow-400">Support</a>
+      <button
+        class="bg-yellow-400 text-black px-6 py-2 rounded-full w-fit hover:bg-yellow-300"
+      >
+        Connect Wallet
+      </button>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section
+      class="flex flex-col items-center justify-center text-center max-w-5xl mx-auto px-6 py-20 relative"
+    >
+      <!-- Grid Background -->
+      <div
+        class="absolute inset-0 -z-10 bg-[url('images/grid.png')] bg-[length:100px_100px] opacity-20"
+      ></div>
+
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        Welcome To
+        <span class="text-yellow-400">Zama-Chatbot</span>
+      </h1>
+      <p class="text-gray-300 text-lg md:text-xl mb-10">
+        Hi There 👋 Welcome To Zama-Chatbot! How Can I Help You Today?
+      </p>
+
+      <!-- Features -->
+      <div class="flex flex-col md:flex-row gap-8 mb-10">
+        <div class="flex flex-col items-center">
+          <i class="fa-solid fa-bell text-3xl mb-2 text-yellow-400"></i>
+          <p class="text-sm">Smart notifications on new messages</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <i class="fa-solid fa-comments text-3xl mb-2 text-yellow-400"></i>
+          <p class="text-sm">Real-time chat with chatbot</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <i
+            class="fa-solid fa-magnifying-glass text-3xl mb-2 text-yellow-400"
+          ></i>
+          <p class="text-sm">Search & filter info in chats easily</p>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div
+        class="flex items-center bg-gradient-to-r from-yellow-600/20 to-yellow-400/20 border border-yellow-400/40 rounded-full px-4 py-2 w-full max-w-2xl"
+      >
+        <input
+          type="text"
+          placeholder="Start Message With Customers, Say Hi 👋"
+          class="flex-1 bg-transparent outline-none text-white px-3"
+        />
+        <button
+          class="bg-yellow-400 text-black p-3 rounded-full hover:bg-yellow-300 transition"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative bg-[#111] py-12 text-gray-300 overflow-hidden">
+      <div
+        class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div
+            class="bg-yellow-400 text-black font-bold text-xl w-10 h-10 flex items-center justify-center rounded"
+          >
+            Z
+          </div>
+          <span class="text-2xl font-bold">
+            zama<span class="text-yellow-400">chatbot</span>
+          </span>
+        </div>
+
+        <!-- Subscribe -->
+        <div>
+          <p class="text-xl mb-3">
+            Get early drops & <br />updates from zamabot
+          </p>
+          <form class="flex bg-white rounded-lg overflow-hidden">
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="flex-1 px-3 py-2 text-black outline-none"
+              required
+            />
+            <button
+              type="submit"
+              class="bg-yellow-400 px-4 text-black font-bold hover:bg-yellow-300"
+            >
+              Subscribe →
+            </button>
+          </form>
+        </div>
+
+        <!-- About Us -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">About Us</h4>
+          <a href="#" class="block hover:text-white">Who we are</a>
+          <a href="#" class="block hover:text-white">Careers</a>
+          <a href="#" class="block hover:text-white">FAQ</a>
+        </div>
+
+        <!-- Privacy + Social -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">Privacy Policy</h4>
+          <div class="flex gap-4 text-2xl text-yellow-400">
+            <a href="#"
+              ><i class="fa-brands fa-x-twitter hover:text-white"></i
+            ></a>
+            <a href="#"
+              ><i class="fa-brands fa-discord hover:text-white"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark -->
+      <div
+        class="absolute inset-0 flex items-center justify-center text-[5rem] md:text-[10rem] font-extrabold text-yellow-400/10 whitespace-nowrap z-0"
+      >
+        zamafhe
+      </div>
+    </footer>
+
+    <!-- Script for Mobile Menu -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

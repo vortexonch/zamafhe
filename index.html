@@ -10,7 +10,7 @@
     <link href="./output.css" rel="stylesheet" />
   </head>
   <body class="bg-black text-white font-inter overflow-x-hidden">
-    <!-- Background Grid (yellow faint grid) -->
+    <!-- Background Grid -->
     <div
       class="yellow-grid absolute inset-0 -z-10 bg-[url('images/grid.png')] bg-[length:80px_80px] opacity-20"
     ></div>
@@ -28,7 +28,6 @@
       </div>
 
       <!-- Navigation (Desktop) -->
-      <!-- Navigation (Desktop) -->
       <nav
         class="hidden lg:flex gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
@@ -37,38 +36,19 @@
         <a href="#" class="text-lg hover:text-yellow-400">Support</a>
       </nav>
 
-      <!-- Wallet Button -->
-      <button
+      <!-- Wallet Button (Desktop) -->
+      <a
+        href="#"
+        id="connect-wallet-btn-desktop"
         class="hidden lg:block bg-yellow-400 text-black px-6 py-3 rounded-full font-medium hover:bg-yellow-300 transition"
       >
         Connect Wallet
-      </button>
+      </a>
 
-      <!-- Mobile Menu Button (for mobile + tablet) -->
+      <!-- Mobile Menu Button -->
       <button id="menu-btn" class="lg:hidden text-white">
         <i class="fa-solid fa-bars text-2xl"></i>
       </button>
-      <!-- 
-      <nav
-        class="hidden md:flex gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <a href="#" class="text-lg hover:text-yellow-400">Home</a>
-        <a href="#" class="text-lg hover:text-yellow-400">About Us</a>
-        <a href="#" class="text-lg hover:text-yellow-400">Support</a>
-      </nav>
-
-       Wallet Button -->
-      <!-- <button
-        class="hidden md:block bg-yellow-400 text-black px-6 py-3 rounded-full font-medium hover:bg-yellow-300 transition"
-      >
-        Connect Wallet
-      </button>
-
-       Mobile Menu Button -->
-      <!-- <button id="menu-btn" class="md:hidden text-white">
-        <i class="fa-solid fa-bars text-2xl"></i>
-      </button>
-   -->
     </header>
 
     <!-- Mobile Dropdown -->
@@ -76,12 +56,55 @@
       id="mobile-menu"
       class="hidden flex-col bg-black px-6 py-4 space-y-4 md:hidden"
     >
-      <a href="#" class="hover:text-yellow-400">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">Support</a>
-      <button class="bg-yellow-400 text-black px-6 py-2 rounded-full w-fit">
+      <a href="#" class="hover:text-yellow-400 block">Home</a>
+      <a href="#" class="block hover:text-yellow-400">About Us</a>
+      <a href="#" class="block hover:text-yellow-400">Support</a>
+      <!-- Mobile Wallet Button -->
+      <button
+        id="connect-wallet-btn-mobile"
+        class="bg-yellow-400 text-black px-6 py-2 rounded-full w-fit"
+      >
         Connect Wallet
       </button>
+    </div>
+
+    <!-- HERO SECTION (unchanged) -->
+    <!-- ... keep your hero, privacy, features, footer as before ... -->
+
+    <!-- Wallet Popup -->
+    <div
+      id="wallet-popup"
+      class="hidden fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50"
+    >
+      <div
+        class="relative bg-black/70 text-white p-6 rounded-2xl w-80 shadow-lg border border-yellow-400/30"
+      >
+        <!-- Close Button -->
+        <button
+          id="close-popup"
+          class="absolute top-3 right-3 text-gray-300 hover:text-white text-xl"
+        >
+          ✕
+        </button>
+        <h2 class="text-2xl font-bold mb-4 text-yellow-400">Connect Wallet</h2>
+        <div class="space-y-3">
+          <button
+            class="w-full bg-yellow-400 text-black py-2 rounded-lg hover:bg-yellow-300 transition"
+          >
+            MetaMask
+          </button>
+          <button
+            class="w-full bg-yellow-400 text-black py-2 rounded-lg hover:bg-yellow-300 transition"
+          >
+            Rabby
+          </button>
+          <button
+            class="w-full bg-yellow-400 text-black py-2 rounded-lg hover:bg-yellow-300 transition"
+          >
+            WalletConnect
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- HERO SECTION -->
@@ -99,11 +122,13 @@
           Get Instant Answers, Learn How To Contribute, And Discover
           Opportunities.
         </p>
-        <button
+        <a
+          href="chatbot.html"
+          target="_blank"
           class="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition"
         >
           Message our chatbot
-        </button>
+        </a>
       </div>
       <!-- Right Image -->
       <div class="md:w-1/2 flex justify-center">
@@ -256,6 +281,7 @@
     </footer>
 
     <!-- Script for Mobile Menu -->
+    <!-- Script -->
     <script src="script.js"></script>
   </body>
 </html>
